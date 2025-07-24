@@ -1,0 +1,14 @@
+# Use an official OpenJDK base image
+FROM openjdk:21-slim
+
+# Set working directory in container
+WORKDIR /app
+
+# Copy source files into the container
+COPY src/ ./src/
+
+# Compile Java files
+RUN javac src/*.java
+
+# Set the entry point to run the application
+CMD ["java", "-cp", "src", "Main"]
